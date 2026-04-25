@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Outfit:wght@400;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-mono: "Space Mono", ui-monospace, SFMono-Regular, monospace;
+  --font-sans: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-neon-cyan: #22d3ee;
+  --color-neon-magenta: #e879f9;
+  --color-neon-yellow: #fbbf24;
+  --color-glitch-bg: #05060f;
+  --color-sidebar-bg: rgba(0, 0, 0, 0.2);
+  --color-border-cyan: rgba(6, 182, 212, 0.2);
+}
+
+@layer base {
+  body {
+    @apply bg-glitch-bg text-slate-200 font-sans overflow-hidden;
+  }
+}
+
+@layer components {
+  .neon-shadow-cyan {
+    @apply shadow-[0_0_15px_rgba(34,211,238,0.4)];
+  }
+  
+  .neon-shadow-magenta {
+    @apply shadow-[0_0_15px_rgba(232,121,249,0.4)];
+  }
+
+  .crt-overlay {
+    @apply pointer-events-none fixed inset-0 z-50;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.05) 50%), 
+                linear-gradient(90deg, rgba(255, 0, 0, 0.01), rgba(0, 255, 0, 0.005), rgba(0, 0, 255, 0.01));
+    background-size: 100% 2px, 3px 100%;
+  }
+
+  .scanlines {
+    @apply fixed inset-0 pointer-events-none z-50 opacity-5;
+    background: repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 1px,
+      #000 2px
+    );
+  }
+
+  .snake-grid-bg {
+    background: radial-gradient(circle at center, #111122 0%, #05060f 100%);
+  }
+}
+
